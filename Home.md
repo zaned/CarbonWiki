@@ -1,4 +1,4 @@
-![SimpleChat](https://imgur.com/a/YjWsCA9.png)
+![SimpleChat](https://imgur.com/S8je1rq)
 
 Welcome to the SimpleChat wiki. Here you will find a complete set of documentation for the plugin, including installation, configuration, troubleshooting, permissions, and usage for Simplechat.
 ___
