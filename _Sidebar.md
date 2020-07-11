@@ -1,7 +1,6 @@
 ## Overview
 
 * [**Home**](/wiki)
-* [**Why SimpleChat?**](Why-Simplechat)
 * [**Credits**](Credits)
 
 ## General
@@ -30,4 +29,5 @@
 
 ## Other
 * [**FAQ**](FAQ)
+  * [Why Simplechat?](Why-Simplechat)
   * [Common Problems](FAQ#Common-Problems)
