@@ -5,6 +5,10 @@
 * [**Credits**](Credits)
 
 ## General
+* [**Installation**](Installation)
+  * [Setup](Installation#Setup)
+  * [Requirements](Installation#Requirements)
+  * [Compatibility](Installation#Compatibility)
 * [**Usage**](Usage)
 * [**Commands**](Commands)
 * [**Permissions**](Permissions)
