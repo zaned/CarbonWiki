@@ -8,16 +8,22 @@
 * [**Usage**](Usage)
 * [**Commands**](Commands)
 * [**Permissions**](Permissions)
+* [**Storage**](Storage)
 * [**Basic Configuration**](Basic-Configuration)
   * [Getting Started](Basic-Configuration#getting-started)
   * [Channels System](Basic-Configuration#channels-system)
-  * [Placeholders](Basic-Configuration#placeholders)
 
-## Advanced
+## Features
 * [**Advanced Configuration**](Advanced-Configuration)
+  * [Bungee Support](Bungee-Support)
 * [**Extensions**](Extensions)
   * [Discord Linking](Extensions#discord-linking)
+* [**Filters**](Filters)
+* [**Locale**](Locale)
+* [**Pings**](Pings)
+* [**ChatSpy**](Chat-Spy)
+* [**Placeholders**](Placeholders)
 
 ## Other
 * [**FAQ**](FAQ)
-  * [Common Errors](FAQ#Common-Errors)
+  * [Common Problems](FAQ#Common-Problems)
