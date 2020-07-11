@@ -1,0 +1,1 @@
+Copyright SimpleChat Contributors 2020
