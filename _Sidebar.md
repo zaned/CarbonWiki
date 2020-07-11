@@ -17,3 +17,7 @@
 * [**Advanced Configuration**](Advanced-Configuration)
 * [**Extensions**](Extensions)
   * [Discord Linking](Extensions#discord-linking)
+
+## Other
+* [**FAQ**](FAQ)
+  * [Common Errors](FAQ#Common-Errors)
