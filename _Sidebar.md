@@ -21,6 +21,7 @@
   * [Bungee Support](Bungee-Support)
 * [**Extensions**](Extensions)
   * [Discord Linking](Extensions#discord-linking)
+  * [Moderation][Extensions#moderation)
 * [**Filters**](Filters)
 * [**Locale**](Locale)
 * [**Pings**](Pings)
