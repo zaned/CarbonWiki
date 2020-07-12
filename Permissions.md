@@ -16,9 +16,9 @@ simplechat.ignore.exempt | Prevents players from /ignore'ing you
 simplechat.me | Says action in chat (/rp)
 simplechat.message | Messages specific player
 simplechat.mute | Mutes specified player
-TODO simplechat.mute.exempt | Prevents you from being 
+simplechat.mute.exempt | Prevents you from being 
 simplechat.shadowmute | ShadowMutes specified player
-TODO simplechat.shadowmute.exempt | Prevents you from being ShadowMuted
+simplechat.shadowmute.exempt | Prevents you from being ShadowMuted
 simplechat.reply | Replies to person who last messaged you
 simplechat.spy.channelname | Shows all messages from specified channel
 simplechat.toggle | Shows/Hides specified channel's messages
