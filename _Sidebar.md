@@ -1,6 +1,6 @@
 ## Overview
 
-* [**Home**](/wiki)
+* [**Home**](Home)
 * [**Credits**](Credits)
 
 ## General
