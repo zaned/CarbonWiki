@@ -22,6 +22,8 @@
 * [**Extensions**](Extensions)
   * [Discord Linking](Extensions#discord-linking)
   * [Moderation](Extensions#moderation)
+  * [mcMMO](Extensions#mcmmo)
+  * [Towny](Extensions#towny)
 * [**Filters**](Filters)
 * [**Locale**](Locale)
 * [**Pings**](Pings)
