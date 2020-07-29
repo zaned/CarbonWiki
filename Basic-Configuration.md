@@ -17,45 +17,45 @@ With that covered, we will go over in a bit more detail the channel system, the 
 The channels system, as described above, is a powerful method of customizing chat exactly how you want it. Even if you want just one channel, it's a simple matter to configure it function exactly how you want it to! Here's an overview:
 
 ### default
-The `default:` section in the configuration is the first one, and it defines the standard attributes of every new channel, unless those attributes are specifically changed in that new channel. In other words, this section holds what the (customizable) formats are for every other channel unless you define different settings in them.
+- The `default:` section in the configuration is the first one, and it defines the standard attributes of every new channel, unless those attributes are specifically changed in that new channel. In other words, this section holds what the (customizable) formats are for every other channel unless you define different settings in them.
 ___
 #### switch-message
-Defines the format of the message players receive when they enter the channel.
+- Defines the format of the message players receive when they enter the channel.
 
 #### switch-other-message
-Defines the format others receive when you enter that channel.
+- Defines the format others receive when you enter that channel.
 
 #### toggle-on-message
-Defines the format of the message you see when you toggle visibility of the channel on.
+- Defines the format of the message you see when you toggle visibility of the channel on.
 
 #### toggle-off-message
-Defines the format of the message you see when you toggle visibility of the channel off.
+- Defines the format of the message you see when you toggle visibility of the channel off.
 
 #### toggle-other-on
-Defines the format of the message that other players see when you toggle visibility of the channel on.
+- Defines the format of the message that other players see when you toggle visibility of the channel on.
 
 #### toggle-other-off
-Defines the format of the message that other players see when you toggle visibility of the channel off.
+- Defines the format of the message that other players see when you toggle visibility of the channel off.
 
 #### cannot-use-channel
-Defines the format of the message received when trying to use a channel one is not permitted to use. This includes `/<channelname>`, which is used to set one's active channel (so their messages go there) and `/<channelname> <message>`, which is used to send a message to that channel but notswitch their primary one to it.
+- Defines the format of the message received when trying to use a channel one is not permitted to use. This includes `/<channelname>`, which is used to set one's active channel (so their messages go there) and `/<channelname> <message>`, which is used to send a message to that channel but notswitch their primary one to it.
 
 #### formats
-This section of the config defines per-group formats, which is the group retrieved from vault that is a user's primary group. The default configuration includes a format, which is by default the one that appears in all channels unless specified otherwise in that channel's settings.
+- This section of the config defines per-group formats, which is the group retrieved from vault that is a user's primary group. The default configuration includes a format, which is by default the one that appears in all channels unless specified otherwise in that channel's settings.
 
 #### contexts
-This portion of the default channel config deals with chat contexts, which are systems by which channels apply to users by default. These are all set to `false` in this section. For more information on contexts and what they do, please see [this page on contexts](Contexts)
+- This portion of the default channel config deals with chat contexts, which are systems by which channels apply to users by default. These are all set to `false` in this section. For more information on contexts and what they do, please see [this page on contexts](Contexts)
 
 #### color
-This setting defines the colour all channels are by default, unless overridden in a specific channel.
+- This setting defines the colour all channels are by default, unless overridden in a specific channel.
 
 #### ignorable
-This setting detemines if users can, by default, use the `/toggle` command for channels and stop seeing messages from them   
+- This setting detemines if users can, by default, use the `/toggle` command for channels and stop seeing messages from them   
 
 #### forward-format
-This setting determines whether channels by default will re-format the message if sent from another server. It is set to false by default as it is not recommended you do this unless you have a channel setup which absolutely requires it.
+- This setting determines whether channels by default will re-format the message if sent from another server. It is set to false by default as it is not recommended you do this unless you have a channel setup which absolutely requires it.
 
 #### should-bungee
-This setting enables or disables cross server chat for channels by default, unless overridden in a specific channel.
+- This setting enables or disables cross server chat for channels by default, unless overridden in a specific channel.
 
 ## Placeholders
