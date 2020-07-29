@@ -10,7 +10,7 @@ Most of the settings in the default configuration are intended as examples, and 
 
 ## Requirements
 
-For Carbon to start up, you need PlaceholderAPI and Vault. This is in order to retrieve prefixes and other formatting from a permissions plugin ([See Luckperms](https://github.com/lucko/LuckPerms)) so you will need Vault and/or PlaceholderAPI.
+For Carbon to start up, you need PlaceholderAPI and Vault. This is in order to retrieve groups, prefixes, and other essential formatting from a permissions plugin ([See Luckperms](https://github.com/lucko/LuckPerms)).
 
 **Vault** is an API which is able to, for the purposes of this plugin, retrieve group information from a permissions plugin and communicate them to Carbon. It is required to have per-group chat formatting defined, either in the default channel format or in any other channel format. **This plugin requires Vault**.
 
