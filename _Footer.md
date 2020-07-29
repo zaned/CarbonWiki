@@ -1,1 +1,1 @@
-Copyright SimpleChat Contributors 2020
+Copyright CarbonChat Contributors 2020

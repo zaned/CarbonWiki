@@ -1,6 +1,6 @@
-![SimpleChat](https://i.imgur.com/e1bR9fN.png)
+![Carbon](https://i.imgur.com/9BZQhg0.png)
 
-Welcome to the SimpleChat wiki. Here you will find a complete set of documentation for the plugin, including installation, configuration, troubleshooting, permissions, and usage for Simplechat.
+Welcome to the Carbon wiki. Here you will find a complete set of documentation for the plugin, including installation, configuration, troubleshooting, permissions, and usage for Simplechat.
 ___
 
 # Support

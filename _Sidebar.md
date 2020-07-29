@@ -25,6 +25,7 @@
   * [mcMMO](Extensions#mcmmo)
   * [Towny](Extensions#towny)
 * [**Filters**](Filters)
+* [**Contexts**](Contexts)
 * [**Locale**](Locale)
 * [**Pings**](Pings)
 * [**ChatSpy**](Chat-Spy)
