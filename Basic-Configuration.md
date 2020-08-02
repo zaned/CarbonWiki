@@ -55,7 +55,7 @@ This section of the config is where you define channels and their attributes. Si
 
  This section of the config is where non-channel related formats are set. 
 
-###### The following message are compatible with MiniMessage/MineDown only
+###### The following messages are compatible with MiniMessage/MineDown only
 - `reloaded`
 - `message-to-other`
 - `message-from-other`
