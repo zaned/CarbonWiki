@@ -33,5 +33,5 @@
 
 ## Other
 * [**FAQ**](FAQ)
-  * [Why Simplechat?](Why-Simplechat)
+  * [Why CarbonChat?](Why-Carbon)
   * [Common Problems](FAQ#Common-Problems)
