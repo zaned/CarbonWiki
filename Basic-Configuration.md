@@ -23,21 +23,24 @@ ___
 ### default
 The `default:` section in the configuration is the first one, and it defines the standard attributes of every new channel, unless those attributes are specifically changed in that new channel. In other words, this section holds what the (customizable) formats are for every other channel unless you define different settings in them.
 
-- `switch-message`
-- `switch-other-message`
-- `toggle-on-message`
-- `toggle-off-message`
-- `toggle-other-on`
-- `toggle-other-off`
-- `cannot-use-channel`
-- `me-format`
-- `formats`
-- `contexts`
-- `color`
-- `ignorable`
-- `forward-format`
-- `should-bungee`
-- `format-group`
+[**Click here for specifics of each option**](#default-specifics)
+
+- [`switch-message`](#switch-message)
+- [`switch-other-message`](#switch-other-message)
+- [`switch-failure-message`](#switch-failure-message)
+- [`toggle-on-message`](#toggle-on-message)
+- [`toggle-off-message`](#toggle-off-message)
+- [`toggle-other-on`](#toggle-other-on)
+- [`toggle-other-off`](#toggle-other-off)
+- [`cannot-use-channel`](#cannot-use-channel)
+
+- [`formats`](#formats)
+- [`contexts`](#contexts)
+- [`color`](#color)
+- [`ignorable`](#ignorable)
+- [`forward-format`](#forward-format)
+- [`should-bungee`](#should-bungee)
+- [`format-group`](#format-group)
 
 ### channels
 
@@ -47,34 +50,56 @@ This section of the config is where you define channels and their attributes. Si
 - `name` - the name of the channel when used
 - `aliases` - other names/letters by which a channel can be used
 - `default` - whether the channel is the default channel which players send messages to (main chat)
+- `message-prefix` - which symbol or character a message can begin with in order for it to be sent to that channel
+###### Example
+```yaml
+staff:
+  name: Staff
+  formats:
+    moderator: '<red>[Mod]<white><message>'
+    developer: '<green>[Dev]<white><message>'
+    admin: '<gold>[Admin]<red><message>'
+  ignorable: false
+  should-bungee: true
+  message-prefix: '$'
+  switch-message: '<color:#55FF55>Staff chat toggled. Time to whine to the developer? Click <green><click:run_command:"/fly">here<reset><color:#55FF55> to fly.'
+  cannot-use-channel: '<red><bold><italic>You are not permitted to use staff channel!'
+```
 
 ### formatting
  - `type` - This option allows you to choose what you would like to use for formatting - `Minimessage`, `MiniMessage-Markdown`, or `MineDown`. Note that all formatting in the default config is set up for `MiniMessage`, which is the default. If you change this, you will have to change the formatting style of the config.
+###### Example
+```yaml
+type: MiniMessage
+```
 
  ### language
 
- This section of the config is where non-channel related formats are set. 
-
+ This section of the config is where non-channel related formats are set.
+ 
 ###### The following messages are compatible with MiniMessage/MineDown only
-- `reloaded`
-- `message-to-other`
-- `message-from-other`
-- `spy-whispers`
-- `no-reply-target`
-- `empty-channel`
-- `channel-switch-failure`
-- `other-nickname-set`
+[**Click here for specifics of each option**](#language-specifics-no-papi-support) 
+- [`reloaded`](#reloaded)
+- [`message-to-other`](#message-to-other)
+- [`message-from-other`](#message-from-other)
+- [`spy-whispers`](#spy-whispers)
+- [`no-reply-target`](#no-reply-target)
+- [`empty-channel`](#empty-channel)
+- [`channel-switch-failure`](#channel-switch-failure)
+- [`other-nickname-set`](#other-nickname-set)
 
 ###### The following messages are compatible with PlaceholderAPI and MiniMessage/Minedown 
-- `ignoring-user`
-- `not-ignoring-user`
-- `ignore-exempt`
-- `channel-color-set`
-- `spy-toggled-on`
-- `spy-toggled-off`
-- `spy-whispers-on`
-- `spy-whispers-off`
-- `nickname-set`
+[**Click here for specifics of each option**](#language-specifics-papi-support) 
+- [`me`](#me)
+- [`ignoring-user`](#ignoring-user)
+- [`not-ignoring-user`](#not-ignoring-user)
+- [`ignore-exempt`](#ignore-exempt)
+- [`channel-color-set`](#channel-color-set)
+- [`spy-toggled-on`](#spy-toggled-on)
+- [`spy-toggled-off`](#spy-toggled-off)
+- [`spy-whispers-on`](#spy-whispers-on)
+- [`spy-whispers-off`](#spy-whispers-off)
+- [`nickname-set`](#nickname-set)
 
 ### server-name
 This setting allows you to define what this server will appear as when you use the `<server>` placeholder in channel formats.
@@ -135,51 +160,161 @@ enabled: false
 
 ## Specifics
 ___
+
+### Default Specifics
+
 #### switch-message
 - Defines the format of the message players receive when they enter the channel.
+###### Example
+```yaml
+switch-message: '<green>You are now in <color><channel> <green>channel! Click <click:run_command:"/toggle <channel>">here<reset><green> to toggle it off.'
+```
 
 #### switch-other-message
 - Defines the format others receive when you enter that channel.
+###### Example
+```yaml
+switch-other-message: '<gray><player> </rainbow><gray>is now in <color><channel> <gray>chat!'
+```
+
+#### switch-failure-message
+- Defines the format and message received by default when you cannot switch to a channel using `/channelname`
+###### Example
+```yaml
+switch-failure-message: '<red>You cannot use channel <channel>!'
+```
 
 #### toggle-on-message
 - Defines the format of the message you see when you toggle visibility of the channel on.
+###### Example
+```yaml
+toggle-on-message: '<gray>You can now see <color><channel> <gray>chat!'
+```
 
 #### toggle-off-message
 - Defines the format of the message you see when you toggle visibility of the channel off.
+###### Example
+```yaml
+toggle-off-message: '<gray>You can no longer see <color><channel> <gray>chat!'
+```
 
 #### toggle-other-on
 - Defines the format of the message that other players see when you toggle visibility of the channel on.
+###### Example
+```yaml
+toggle-other-on: '<gray><player> </rainbow><gray>can now see <color><channel> <gray>chat!'
+```
 
 #### toggle-other-off
 - Defines the format of the message that other players see when you toggle visibility of the channel off.
+###### Example
+```yaml
+toggle-other-off: '<gray><player> </rainbow><gray>can no longer see <color><channel> <gray>chat!'
+```
 
 #### cannot-use-channel
 - Defines the format of the message received when trying to use a channel one is not permitted to use. This includes `/<channelname>`, which is used to set one's active channel (so their messages go there) and `/<channelname> <message>`, which is used to send a message to that channel but notswitch their primary one to it.
-
-#### me-format
-- Defines the format of the message sent to the channel the user is in when they run the `/me <message>` command.
+###### Example
+```yaml
+cannot-use-channel: '<red>You cannot use that channel!'
+```
 
 #### formats
 - This section of the config defines per-group formats, which is the group retrieved from vault that is a user's primary group. The default configuration includes a format, which is by default the one that appears in all channels unless specified otherwise in that channel's settings.
+###### Example
+```yaml
+
+```
 
 #### contexts
 - This portion of the default channel config deals with chat contexts, which are systems by which channels apply to users by default. These are all set to `false` in this section. For more information on contexts and what they do, please see [this page on contexts](Contexts)
+###### Example
+```yaml
+
+```
 
 #### color
 - This setting defines the colour all channels are by default, unless overridden in a specific channel.
+###### Example
+```yaml
+
+```
 
 #### ignorable
 - This setting detemines if users can, by default, use the `/toggle` command for channels and stop seeing messages from them   
+###### Example
+```yaml
+
+```
 
 #### forward-format
 - This setting determines whether channels by default will re-format the message if sent from another server. It is set to false by default as it is not recommended you do this unless you have a channel setup which absolutely requires it.
+###### Example
+```yaml
+
+```
 
 #### should-bungee
 - This setting enables or disables cross server chat for channels by default, unless overridden in a specific channel.
+###### Example
+```yaml
+
+```
 
 #### format-group
 - `primary only` - This setting will cause the chat format for the user need to match their primary group, else it will use the one for the default group. 
 - `vault-sorting` - This setting will go through a list of their groups in an order ***that is not set in a reliable way in every situation*** and use the first it finds. As such it is not recommended unless you know what you're doing!
 - `custom` - This setting allows you to define an order of groups through which Carbon will check for the first match that the user has. It uses standard yaml array format, and it is recommended you use this over `vault-sorting` in order to ensure consistency. 
+###### Example
+```yaml
+
+```
+
+### Language Specifics (No PAPI Support)
+
+#### reloaded
+
+#### message-to-other
+
+#### message-from-other
+
+#### spy-whispers
+
+#### no-reply-target
+
+#### empty-channel
+
+#### other-nickname-set
+
+#### other-nickname-reset
+
+### Language Specifics (PAPI Support)
+
+#### me
+- Defines the format of the message sent to the channel the user is in when they run the `/me <message>` command.
+###### Example
+```yaml
+ me: '<italic><dark_purple>*%player_displayname% </rainbow><pre><message></pre>*</dark_purple></italic>'
+```
+#### ignoring-user
+
+#### not-ignoring-user
+
+#### ignore-exempt
+
+#### channel-color-set
+
+#### spy-toggled-on
+
+#### spy-toggled-off
+
+#### spy-whispers-on
+
+#### spy-whispers-off
+
+#### nickname-set
+
+#### nickname-reset
+
 
 ## Placeholders
