@@ -24,7 +24,6 @@ ___
 The `default:` section in the configuration is the first one, and it defines the standard attributes of every new channel, unless those attributes are specifically changed in that new channel. In other words, this section holds what the (customizable) formats are for every other channel unless you define different settings in them.
 
 [**Click here for specifics of each option**](#default-specifics)
-
 - [`switch-message`](#switch-message)
 - [`switch-other-message`](#switch-other-message)
 - [`switch-failure-message`](#switch-failure-message)
