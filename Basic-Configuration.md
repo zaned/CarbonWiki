@@ -32,7 +32,6 @@ The `default:` section in the configuration is the first one, and it defines the
 - [`toggle-other-on`](#toggle-other-on)
 - [`toggle-other-off`](#toggle-other-off)
 - [`cannot-use-channel`](#cannot-use-channel)
-
 - [`formats`](#formats)
 - [`contexts`](#contexts)
 - [`color`](#color)
