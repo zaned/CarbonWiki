@@ -38,6 +38,8 @@ The `default:` section in the configuration is the first one, and it defines the
 - [`ignorable`](#ignorable)
 - [`forward-format`](#forward-format)
 - [`should-bungee`](#should-bungee)
+- [`primary-group-only`](#primary-group-only)
+- [`default-group`](#default-group)
 - [`format-group`](#format-group)
 
 ### channels
@@ -218,10 +220,11 @@ cannot-use-channel: '<red>You cannot use that channel!'
 ```
 
 #### formats
-- This section of the config defines per-group formats, which is the group retrieved from vault that is a user's primary group. The default configuration includes a format, which is by default the one that appears in all channels unless specified otherwise in that channel's settings.
+- This section of the config defines per-group formats, which is the user's primary group retrieved from [Vault](Installation#Requirements). The default configuration includes a format, which is by default the one that appears in all channels unless specified otherwise in that channel's settings.
 ###### Example
 ```yaml
-
+staff: '<gray>{[%vault_prefix%<gray>]} %player_displayname% </rainbow><gray>» <color><message>'
+default: '<gray>[%vault_prefix%<gray>] %player_displayname%</rainbow><gray>: <color><message>'
 ```
 
 #### contexts
@@ -259,32 +262,86 @@ cannot-use-channel: '<red>You cannot use that channel!'
 
 ```
 
+#### primary-group-only
+- This setting determines if Carbon will only set a non-default format for a user's primary group, or if it will set the format based on a search of all the user's groups, going with the first one it finds that the channel also has a specific format set for. ***It is highly recommended you leave this `true` because the order of groups which Vault sends is unreliable and should only be used if you know what you're doing!***
+###### Example
+```yaml
+primary-group-only: true
+```
+
+#### default-group
+- This setting determines which [Vault](Installation#Requirements) group is taken to be the `default` group for formatting purposes In other words, the group whose format the user will get if they do not have another group with a specified format for that channel.
+###### Examle
+```yaml
+default-group: 'default'
+```
+
 #### format-group
-- `primary only` - This setting will cause the chat format for the user need to match their primary group, else it will use the one for the default group. 
+- `primary-only` - This setting will cause the chat format for the user need to match their primary group, else it will use the one for the default group. 
 - `vault-sorting` - This setting will go through a list of their groups in an order ***that is not set in a reliable way in every situation*** and use the first it finds. As such it is not recommended unless you know what you're doing!
 - `custom` - This setting allows you to define an order of groups through which Carbon will check for the first match that the user has. It uses standard yaml array format, and it is recommended you use this over `vault-sorting` in order to ensure consistency. 
 ###### Example
 ```yaml
-
+format-group: ['owner', 'developer', 'admin', 'moderator', 'default', 'donator']
 ```
 
 ### Language Specifics (No PAPI Support)
 
 #### reloaded
+- The message sent when Carbon successfully reloads
+###### Example
+```yaml
+reloaded: '<Red>Chat config has been reloaded!'
+```
 
 #### message-to-other
+- Format of private messages as seen when sent. `<target>` refers to the recipient of the private message.
+###### Example
+```yaml
+message-to-other: '<green>[<gray>Me <gold>-> <gray><target></rainbow><green>] <message>'
+```
 
 #### message-from-other
+- Format of private messages as seen when received. `<sender>` refers to the person sending the private message as seen when received.
+###### Example
+```yaml
+ message-from-other: '<green>[<gray><sender></rainbow> <gold>-> <gray>Me<green>] <message>'
+```
 
 #### spy-whispers
+- Format of spy-detected whispers between other players. `<sender>` refers to the person sending the message, and `<target>` refers to the person receiving it.
+###### Example
+```yaml
+spy-whispers: '<yellow>Spy [<gray><sender></rainbow> <gold>-> <gray><target></rainbow><yellow>] <message>'
+```
 
 #### no-reply-target
+- Message seen when a player tries to reply to private message when there are no private messages to reply to.
+###### Example
+```yaml
+no-reply-target: '<red>You have no one to reply to!'
+```
 
 #### empty-channel
+- Empty channel message, received when sending a message to a channel with nobody else in it.
+###### Example
+```yaml
+empty-channel: '<blue>You're <italic>all alone</italic> in this channel, <bold>nobody</bold> to hear you, <bold>nobody</bold> to answer. No matter how long, how often, how <italic>desperately</italic> you communicate, the vast distance of infinity is too great here, insurmountable, rendering you totally and completely unable to reach another living soul.'
+```
 
 #### other-nickname-set
+- Format of system message received when a player changes their nickname.
+###### Example
+```yaml
+other-nickname-set: '<green><user></rainbow>''s nickname was set to <nickname><green>!'
+```
 
 #### other-nickname-reset
+- Format of system message received when a player resets their nickname.
+###### Example
+```yaml
+other-nickname-reset: '<green><user></rainbow>''s nickname was reset!'
+```
 
 ### Language Specifics (PAPI Support)
 
@@ -292,27 +349,76 @@ cannot-use-channel: '<red>You cannot use that channel!'
 - Defines the format of the message sent to the channel the user is in when they run the `/me <message>` command.
 ###### Example
 ```yaml
- me: '<italic><dark_purple>*%player_displayname% </rainbow><pre><message></pre>*</dark_purple></italic>'
+ me: '<italic><dark_purple>*%player_displayname% </rainbow><message>*</dark_purple></italic>'
 ```
 #### ignoring-user
+- Message received when a user is ignored. `<player>` refers to the ignored user. 
+###### Example
+```yaml
+ ignoring-user: '<red>You have silenced <gold><player></rainbow><red> and will never hear from them again!'
+```
 
 #### not-ignoring-user
+- Message received when a user is un-ignored. `<player>` refers to the un-ignored user.
+###### Example
+```yaml
+not-ignoring-user: '<green>You have chosen to make audible the cries of <gold><player></rainbow> once more!'
+```
 
 #### ignore-exempt
+- Message received when a player attempts to ignore someone that cannot be ignored. `<player>` refers to the unignorable user.
+###### Example
+```yaml
+ignore-exempt: '<red>You may not silence <gold><player></rainbow>! <red>They are exempt from being ignored!'
+```
 
 #### channel-color-set
+- Message received when setting a channel colour. `<color>` refers to the colour the channel is set to, `<channel>` to the name of the channel, and `<hex>` to the hex value of the `<color>`.
+###### Example
+```yaml
+ channel-color-set: '<green>You have set <color><channel> <green>color to <hex>!'
+```
 
 #### spy-toggled-on
+- Message received when toggling on spy for a channel. `<color>` refers to the color of the channel you toggled spy on for, and `<channel>` to its name.
+###### Example
+```yaml
+spy-toggled-on: '<gray>You are now spying on <color><channel> <gray>chat!'
+```
 
 #### spy-toggled-off
+- Message received when toggling off spy for a channel. `<color>` refers to the color of the channel you toggled spy off for, and `<channel>` to its name.
+###### Example
+```yaml
+spy-toggled-off: '<gray>You are no longer spying on <color><channel> <gray>chat!'
+```
 
 #### spy-whispers-on
+- Message received when toggling on spy for whispers, or private messages.
+###### Example
+```yaml
+spy-whispers-on: '<gray>You are now spying on private messages!'
+```
 
 #### spy-whispers-off
+- Message received when toggling off spy for whispers, or private messages.
+###### Example
+```yaml
+spy-whispers-off: '<gray>You are no longer spying on private messages!'
+```
 
 #### nickname-set
+- Message a player receives when they set their nickname.
+###### Example
+```yaml
+nickname-set: '<green>Your nickname was set to <nickname></rainbow><green>!'
+```
 
 #### nickname-reset
+###### Example
+```yaml
+
+```
 
 
 ## Placeholders
