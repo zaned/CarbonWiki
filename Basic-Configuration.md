@@ -36,15 +36,16 @@ The `default:` section in the configuration is the first one, and it defines the
 - [`contexts`](#contexts)
 - [`color`](#color)
 - [`ignorable`](#ignorable)
-- [`forward-format`](#forward-format)
 - [`should-bungee`](#should-bungee)
 - [`primary-group-only`](#primary-group-only)
 - [`default-group`](#default-group)
-- [`format-group`](#format-group)
+- [`cancel-message-event`](#cancel-message-event)
+- [`honors-recipient-list`](#honors-recipient-list)
+- [`custom-order`](#custom-order)
 
 ### channels
 
-This section of the config is where you define channels and their attributes. Simply setting a channel up with a name, aliases, and [default toggle](), will cause the channel to take on all the attributes that are set in [default](Basic-Configuration#default). To define them per-channel, simply set them as options with the same format as the examples.
+This section of the config is where you define channels and their attributes. Simply setting a channel up with a name will cause the channel to take on all the attributes that are set as [default](#default). To define things per-channel, that override default settings, simply set them as options with the same format as the examples already present in the config or in this wiki.
 
 - `global` - the name of the channel that Carbon uses internally
 - `name` - the name of the channel when used
@@ -231,28 +232,29 @@ default: '<gray>[%vault_prefix%<gray>] %player_displayname%</rainbow><gray>: <co
 - This portion of the default channel config deals with chat contexts, which are systems by which channels apply to users by default. These are all set to `false` in this section. For more information on contexts and what they do, please see [this page on contexts](Contexts)
 ###### Example
 ```yaml
-
+contexts:
+  distance: -1
+  mcmmo-party: false
+  worldguard-region: false
+  towny-town: false
+  filter: true
+  vault-balance: 0
+  vault-cost: 0
 ```
 
 #### color
-- This setting defines the colour all channels are by default, unless overridden in a specific channel.
+- This setting defines the colour all channels are by default, unless overridden in a specific channel. When used it is the color that that `<color>` placeholder is replaced with. 
+- It also supports PAPI, however the placeholder must result in a valid colour.
 ###### Example
 ```yaml
-
+color: '#FFFF00'
 ```
 
 #### ignorable
-- This setting detemines if users can, by default, use the `/toggle` command for channels and stop seeing messages from them   
+- This setting detemines if users can, by default, use the `/toggle` command for the channel it's set in, and stop seeing messages from it.   
 ###### Example
 ```yaml
-
-```
-
-#### forward-format
-- This setting determines whether channels by default will re-format the message if sent from another server. It is set to false by default as it is not recommended you do this unless you have a channel setup which absolutely requires it.
-###### Example
-```yaml
-
+ignorable: false
 ```
 
 #### should-bungee
@@ -276,13 +278,31 @@ primary-group-only: true
 default-group: 'default'
 ```
 
-#### format-group
-- `primary-only` - This setting will cause the chat format for the user need to match their primary group, else it will use the one for the default group. 
-- `vault-sorting` - This setting will go through a list of their groups in an order ***that is not set in a reliable way in every situation*** and use the first it finds. As such it is not recommended unless you know what you're doing!
-- `custom` - This setting allows you to define an order of groups through which Carbon will check for the first match that the user has. It uses standard yaml array format, and it is recommended you use this over `vault-sorting` in order to ensure consistency. 
+#### cancel-message-event
+- Will prevent other plugins from seeing messages that they should not do things with. This should be set to `false` for *public* channels, and to `true` for *private* channels. 
+- This will ***not*** break compatibility with plugins like DiscordSRV which can still be used with private channels, even when set to `true`.
 ###### Example
 ```yaml
-format-group: ['owner', 'developer', 'admin', 'moderator', 'default', 'donator']
+cancel-message-event: true
+```
+
+#### honors-recipient-list
+- Used to allow other plugins to see who would recieve messages in a specific channel and is used for compatiblity. If you have another plugin which specifies what players receive certain messages, set this to true in the channel that plugin interacts in. Otherwise, leave it false.
+###### Example
+```yaml
+honors-recipient-list: false
+```
+
+#### custom order
+- This setting allows you to define an order of groups through which Carbon will check for the first match that the user has. It uses standard yaml array format.
+###### Example
+```yaml
+custom-order: 
+  - 'owner'
+  - 'admin'
+  - 'helper'
+  - 'builder'
+  - 'default'
 ```
 
 ### Language Specifics (No PAPI Support)
@@ -415,9 +435,10 @@ nickname-set: '<green>Your nickname was set to <nickname></rainbow><green>!'
 ```
 
 #### nickname-reset
+- Message a player receives when they reset their nickname.
 ###### Example
 ```yaml
-
+<purple>Your nickname was reset!
 ```
 
 
