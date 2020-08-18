@@ -51,7 +51,7 @@ This section of the config is where you define channels and their attributes. Si
 - `name` - the name of the channel when used
 - `aliases` - other names/letters by which a channel can be used
 - `default` - whether the channel is the default channel which players send messages to (main chat)
-- `message-prefix` - which symbol or character a message can begin with in order for it to be sent to that channel
+- `message-prefix` - messages that start with the string defined here will be sent to this channel
 ###### Example
 ```yaml
 staff:
