@@ -9,7 +9,7 @@ Before you can begin to effectively configure Carbon, it is necessary to underst
 
 Some of these factors include [permissions](Permissions), especially the ability to send messages, and the ability to receive messages, in a particular channel, each of which is controlled by a separate permission. Another system of factors are [contexts](Contexts), which allow a person to interact with channels based off of factors like distance, mcMMO party, worldguard region, and towny town. 
 
-Just about every single setting and format in Carbon is configurable, which allows for massive potential! Want a broadcast channel with a special format? Simply create it in the config, and only give your players permission to see the channel, not send messages. Make the channel unignorable, and \*bam*! a broadcast channel, exactly how you wanted.
+Just about every single setting and format in Carbon is configurable, which allows for massive potential! Want a broadcast channel with a special format? Simply create it in the config, and only give your players permission to see the channel, not send messages. Make the channel unignorable, and *bam*! a broadcast channel, exactly how you wanted.
 
 With that covered, we will go over in a bit more detail the channel system, the basic options which most people will need to use, and the placeholders which Carbon supports in its formatting.
 
@@ -33,6 +33,7 @@ The `default:` section in the configuration is the first one, and it defines the
 - [`toggle-other-off`](#toggle-other-off)
 - [`cannot-use-channel`](#cannot-use-channel)
 - [`formats`](#formats)
+- [`format-groups`](#format-groups)
 - [`contexts`](#contexts)
 - [`color`](#color)
 - [`ignorable`](#ignorable)
@@ -228,6 +229,33 @@ staff: '<gray>{[%vault_prefix%<gray>]} %player_displayname% </rainbow><gray>» <
 default: '<gray>[%vault_prefix%<gray>] %player_displayname%</rainbow><gray>: <color><message>'
 ```
 
+#### format-groups
+- This setting allows you to define an order of groups in which Carbon will check for the first match that the user has.  If there are no matches, the plugin will fall back to the [`primary-group-only`](#primary-group-only) option. It's advised to set this option to `[]` if you don't want to use it.
+###### Example
+```yaml
+custom-order: 
+  - 'owner'
+  - 'admin'
+  - 'helper'
+  - 'builder'
+  - 'default'
+```
+
+#### permission-group-matching
+- If true, plugin will only use the format corresponding to the user's primary group (vault).
+- If false, plugin will look through the user's groups and go with the first group with a corresponding format.
+###### Example
+```yaml
+permission-group-matching: true
+```
+
+#### default-group
+- This setting determines which [Vault](Installation#Requirements) group is taken to be the `default` group for formatting purposes In other words, the group whose format the user will get if they do not have another group with a specified format for that channel.
+###### Examle
+```yaml
+default-group: 'default'
+```
+
 #### contexts
 - This portion of the default channel config deals with chat contexts, which are systems by which channels apply to users by default. These are all set to `false` in this section. For more information on contexts and what they do, please see [this page on contexts](Contexts)
 ###### Example
@@ -271,13 +299,6 @@ ignorable: false
 primary-group-only: true
 ```
 
-#### default-group
-- This setting determines which [Vault](Installation#Requirements) group is taken to be the `default` group for formatting purposes In other words, the group whose format the user will get if they do not have another group with a specified format for that channel.
-###### Examle
-```yaml
-default-group: 'default'
-```
-
 #### cancel-message-event
 - Will prevent other plugins from seeing messages that they should not do things with. This should be set to `false` for *public* channels, and to `true` for *private* channels. 
 - This will ***not*** break compatibility with plugins like DiscordSRV which can still be used with private channels, even when set to `true`.
@@ -291,18 +312,6 @@ cancel-message-event: true
 ###### Example
 ```yaml
 honors-recipient-list: false
-```
-
-#### custom order
-- This setting allows you to define an order of groups through which Carbon will check for the first match that the user has. It uses standard yaml array format.
-###### Example
-```yaml
-custom-order: 
-  - 'owner'
-  - 'admin'
-  - 'helper'
-  - 'builder'
-  - 'default'
 ```
 
 ### Language Specifics (No PAPI Support)

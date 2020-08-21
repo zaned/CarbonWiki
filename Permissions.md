@@ -14,6 +14,8 @@ Node | Function
 `carbonchat.ignore` | Ignores specified player (hides their messages)
 `carbonchat.ignore.exempt` | Prevents players from /ignore'ing you
 `carbonchat.me` | Says action in chat (/rp)
+`carbonchat.nickname` | Allows nicknaming oneself
+`carbonchat.nickname.others` | Allows nicknaming others
 `carbonchat.message` | Messages specific player
 `carbonchat.mute` | Mutes specified player
 `carbonchat.mute.exempt` | Prevents you from being 
@@ -24,3 +26,4 @@ Node | Function
 `carbonchat.toggle` | Shows/Hides specified channel's messages
 `carbonchat.channels.channelname.see` | If you can see messages in specified channel
 `carbonchat.channels.channelname.use` | If you can send messages in specified channel
+`carbonchat.group.groupname` | Gives user the group `groupname`, must be [enabled](Basic-Configuration#primary-group-only)
