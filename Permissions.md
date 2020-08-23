@@ -27,3 +27,8 @@ Node | Function
 `carbonchat.channels.channelname.see` | If you can see messages in specified channel
 `carbonchat.channels.channelname.use` | If you can send messages in specified channel
 `carbonchat.group.groupname` | Gives user the group `groupname`, must be [enabled](Basic-Configuration#primary-group-only)
+`carbonchat.channellist` | Allows user to list which channels they can see
+`carbonchat.channellist.others` | Allows user to list which channels another user can see
+`carbonchat.channellist.bypass` | Allows user to list channels that they or another user cannot see
+`carbonchat.formatting` | Allows user to use formatting codes anywhere
+`carbonchat.channels.channelname.formatting` | Allows user to use formatting codes in specified channel.
