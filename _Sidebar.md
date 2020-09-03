@@ -19,11 +19,6 @@
 ## Features
 * [**Advanced Configuration**](Advanced-Configuration)
   * [Bungee Support](Bungee-Support)
-* [**Extensions**](Extensions)
-  * [Discord Linking](Extensions#discord-linking)
-  * [Moderation](Extensions#moderation)
-  * [mcMMO](Extensions#mcmmo)
-  * [Towny](Extensions#towny)
 * [**Filters**](Filters)
 * [**Contexts**](Contexts)
 * [**Locale**](Locale)
