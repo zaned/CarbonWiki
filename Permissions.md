@@ -4,8 +4,8 @@ The following is a list of permission nodes that are checked in the plugin, and 
 
 Node | Function
 | --- | --- |
-`carbonchat.switch` | Switching to channels
-`carbonchat.switch.others` | Sets other player's selected channel
+`carbonchat.channel` | Switching to channels
+`carbonchat.channel.others` | Sets other player's selected channel
 `carbonchat.setcolor.channelname` | Sets the user's color for the given channel
 `carbonchat.reload` | Reloads config
 `carbonchat.clearchat.clear` | Clears the chat
